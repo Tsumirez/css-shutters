@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body > div {
+    width: 200px;
+    height: 30px;
+    margin: 5rem auto;
+    position: relative;
+    color:#fff;
+    overflow: hidden;
+    font-style: italic;
+}
+
+p, div::before {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    background:#000;
+    width: 100%;
+    transition: margin .5s ease-in, opacity .5s ease-out;
+}
+
+p {
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%, 0 40%, 100% 40%, 100% 60%, 0 60%, 0 80%, 100% 80%, 100% 100%, 0 100%);
+    /* transform: skew(-30deg); */
+}
+
+div::before {
+    content: attr(champ-name);
+    position: absolute;
+    inset:0;
+    /* transform: skew(-30deg); */
+    clip-path: polygon(0 0, 0 20%, 100% 20%, 100% 40%, 0 40%, 0 60%, 100% 60%, 100% 80%, 0 80%);
+}
+
+div:hover p {
+   margin-left:-100%;
+   /* opacity: 0; */
+}
+
+div:hover::before {
+    margin-left:100%;
+    /* opacity: 0; */
+}
